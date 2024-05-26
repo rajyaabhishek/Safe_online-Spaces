@@ -8,14 +8,13 @@ import torchvision
 from torchvision import transforms
 import matplotlib.pyplot as plt
 
-
-# Initialize the model (replace this with your model initialization)
 from typing import List, Tuple
 
 from PIL import Image
 
 # Set device
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
 # Predict on a target image with a target model
 # Function created in: https://www.learnpytorch.io/06_pytorch_transfer_learning/#6-make-predictions-on-images-from-the-test-set
 def pred_and_plot_image(
@@ -36,7 +35,6 @@ def pred_and_plot_image(
         transform (torchvision.transforms, optional): Transform to perform on image. Defaults to None which uses ImageNet normalization.
         device (torch.device, optional): Target device to perform prediction on. Defaults to device.
     """
-
 
     # Open image
     img = Image.open(image_path)
